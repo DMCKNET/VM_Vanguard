@@ -4,6 +4,8 @@
 ## Overview
 This repository contains Bicep templates for deploying Azure infrastructure, including virtual machines, networking resources, and security groups.
 
+![Architecture Diagram](VM_Vanguard.png)
+
 ## Bicep Modules
 
 ### 1. main.bicep
