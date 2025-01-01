@@ -11,24 +11,24 @@ This repository contains Bicep templates for deploying Azure infrastructure, inc
 ### 1. main.bicep
 - **Purpose**: Orchestrates the deployment of resources.
 - **Parameters**:
-  - `adminUsername` (string): Administrator username for VMs.
-  - `adminPassword` (securestring): Administrator password for VMs.
-  - `vmCount` (int): Number of VMs to deploy.
-  - `location` (string): Location for the deployment.
+  - adminUsername (string): Administrator username for VMs.
+  - adminPassword (securestring): Administrator password for VMs.
+  - vmCount (int): Number of VMs to deploy.
+  - location` (string): Location for the deployment.
 
 ### 2. network.bicep
 - **Purpose**: Defines networking resources like Virtual Network, Subnet, and Network Security Groups.
 - **Parameters**:
-  - `location` (string): Location for the deployment.
+  - location (string): Location for the deployment.
 
 ### 3. vm.bicep
 - **Purpose**: Defines virtual machines and related resources.
 - **Parameters**:
-  - `adminUsername` (string): Administrator username for VMs.
-  - `adminPassword` (securestring): Administrator password for VMs.
-  - `vmCount` (int): Number of VMs to deploy.
-  - `location` (string): Location for the deployment.
-  - `subnetId` (string): ID of the subnet to attach VMs.
+  - adminUsername (string): Administrator username for VMs.
+  - adminPassword (securestring): Administrator password for VMs.
+  - vmCount (int): Number of VMs to deploy.
+  - location (string): Location for the deployment.
+  - subnetId (string): ID of the subnet to attach VMs.
 
 ## Parameter Files
 
