@@ -1,0 +1,15 @@
+{
+  "adminUsername": {
+    "value": "adminUser"
+  },
+  "adminPassword": {
+    "value": "securePassword123!"
+  },
+  "vmCount": {
+    "value": 3
+  },
+  "location": {
+    "value": "eastus"
+  }
+}
+
