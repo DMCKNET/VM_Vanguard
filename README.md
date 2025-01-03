@@ -53,10 +53,6 @@ This project implements an infrastructure-as-code approach to provision and mana
 1. Make changes to your Bicep files (e.g., VM size or count) and redeploy. Observe how Azure handles updates and maintains state.
 2. Regularly pull updates to the Bicep language and Azure CLI to stay updated with new features and improvements.
 
-#### Documentation & Cleanup
-1. Document your Bicep modules, their purpose, and any parameters required.
-2. After testing, ensure to delete resources or resource groups to avoid incurring unnecessary costs.
-
 ## Bicep Modules Overview
 
 ### main.bicep
