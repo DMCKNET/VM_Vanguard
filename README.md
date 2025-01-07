@@ -117,10 +117,10 @@ This project implements an infrastructure-as-code approach to provision and mana
   ```sh
   az bicep install
 
-Create a resource group:
+### Create a resource group:
 az group create --name <ResourceGroupName> --location <Location>
  
-Store secrets in Azure Key Vault:
+### Store secrets in Azure Key Vault:
 az keyvault secret set --vault-name <KeyVaultName> --name "DevAdminUsername" --value "dev_admin"
 az keyvault secret set --vault-name <KeyVaultName> --name "TestAdminUsername" --value "test_admin"
 az keyvault secret set --vault-name <KeyVaultName> --name "ProdAdminUsername" --value "prod_admin"
@@ -128,11 +128,11 @@ az keyvault secret set --vault-name <KeyVaultName> --name "DevAdminUsername" --v
 az keyvault secret set --vault-name <KeyVaultName> --name "TestAdminUsername" --value "test_admin"
 az keyvault secret set --vault-name <KeyVaultName> --name "ProdAdminUsername" --value "prod_admin"
 
-Validate Bicep files:
+### Validate Bicep files:
 az deployment group validate --resource-group <ResourceGroupName> --template-file main.bicep --parameters @dev.parameters.json
 
-Deploy Bicep templates:
+### Deploy Bicep templates:
 az deployment group create --resource-group <ResourceGroupName> --template-file main.bicep --parameters @dev.parameters.json
 
-Delete a resource group:
+### Delete a resource group:
 az group delete --name <ResourceGroupName> --yes --no-wait
