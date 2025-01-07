@@ -2,18 +2,17 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-      "adminUsername": {
-        "value": "test_admin"
-      },
-      "adminPassword": {
-        "value": "test123$"
-      },
-      "location": {
-        "value": "centralus"
+      "keyVaultName": {
+        "value": "vmvanguardvault"
       },
       "vmCount": {
         "value": 3
+      },
+      "location": {
+        "value": "eastus"
+      },
+      "environment": {
+        "value": "Test"
       }
     }
   }
-  

@@ -1,10 +1,20 @@
-param adminUsername string
-@secure()
-param adminPassword string
+// Parameters
+param keyVaultName string 
 param vmCount int
-param location string
+param location string = 'eastus'
+param environment string 
 
-module network 'network.bicep' = {
+// Existing Key Vault resource
+resource kv 'Microsoft.KeyVault/vaults@2023-07-01' existing = {
+  name: keyVaultName
+  scope: resourceGroup()
+}
+
+// Variable to store the secret name for the admin username
+var adminUsernameSecretName = '${environment}AdminUsername'
+
+// Module to deploy networking resources
+module network './network.bicep' = {
   name: 'NetworkModule'
   scope: resourceGroup()
   params: {
@@ -12,15 +22,15 @@ module network 'network.bicep' = {
   }
 }
 
-module vm 'vm.bicep' = {
+// Module to deploy virtual machines
+module vm './vm.bicep' = {
   name: 'VmModule'
   scope: resourceGroup()
   params: {
-    adminUsername: adminUsername
-    adminPassword: adminPassword
+    adminUsername: kv.getSecret(adminUsernameSecretName)
+    adminPassword: kv.getSecret('vmAdminPassword')
     vmCount: vmCount
     location: location
     subnetId: network.outputs.subnetId
   }
 }
-

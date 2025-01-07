@@ -1,10 +1,14 @@
-param adminUsername string
 @secure()
-param adminPassword string
-param vmCount int
-param location string
-param subnetId string
+param adminUsername string 
 
+@secure()
+param adminPassword string 
+
+param vmCount int 
+param location string = 'eastus' 
+param subnetId string 
+
+// Public IP resource
 resource publicIp 'Microsoft.Network/publicIPAddresses@2020-06-01' = [for i in range(0, vmCount): {
   name: 'myPublicIP${i}'
   location: location
@@ -16,6 +20,7 @@ resource publicIp 'Microsoft.Network/publicIPAddresses@2020-06-01' = [for i in r
   }
 }]
 
+// Network Interface resource
 resource nic 'Microsoft.Network/networkInterfaces@2020-06-01' = [for i in range(0, vmCount): {
   name: 'myNIC${i}'
   location: location
@@ -37,6 +42,7 @@ resource nic 'Microsoft.Network/networkInterfaces@2020-06-01' = [for i in range(
   }
 }]
 
+// Virtual Machine resource
 resource vm 'Microsoft.Compute/virtualMachines@2021-03-01' = [for i in range(0, vmCount): {
   name: 'myVM${i}'
   location: location
@@ -69,4 +75,3 @@ resource vm 'Microsoft.Compute/virtualMachines@2021-03-01' = [for i in range(0, 
     }
   }
 }]
-
