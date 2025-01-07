@@ -120,13 +120,8 @@ Install Azure CLI with Bicep support:
 az group create --name <ResourceGroupName> --location <Location>
  
 ### Store secrets in Azure Key Vault:
+az keyvault secret set --vault-name <KeyVaultName> --name "DevAdminUsername" --value "dev_admin"
 
-az keyvault secret set --vault-name <KeyVaultName> --name "DevAdminUsername" --value "dev_admin"
-az keyvault secret set --vault-name <KeyVaultName> --name "TestAdminUsername" --value "test_admin"
-az keyvault secret set --vault-name <KeyVaultName> --name "ProdAdminUsername" --value "prod_admin"
-az keyvault secret set --vault-name <KeyVaultName> --name "DevAdminUsername" --value "dev_admin"
-az keyvault secret set --vault-name <KeyVaultName> --name "TestAdminUsername" --value "test_admin"
-az keyvault secret set --vault-name <KeyVaultName> --name "ProdAdminUsername" --value "prod_admin"
 
 ### Validate Bicep files:
 az deployment group validate --resource-group <ResourceGroupName> --template-file main.bicep --parameters @dev.parameters.json
