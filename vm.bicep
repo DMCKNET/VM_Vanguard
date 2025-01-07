@@ -1,12 +1,20 @@
+// Parameters
 @secure()
-param adminUsername string 
+@description('Administrator username for VMs')
+param adminUsername string
 
 @secure()
-param adminPassword string 
+@description('Administrator password for VMs')
+param adminPassword string
 
-param vmCount int 
-param location string = 'eastus' 
-param subnetId string 
+@description('Number of VMs to deploy')
+param vmCount int
+
+@description('Location for the deployment')
+param location string = 'eastus'
+
+@description('ID of the subnet to which VMs will be attached')
+param subnetId string
 
 // Public IP resource
 resource publicIp 'Microsoft.Network/publicIPAddresses@2020-06-01' = [for i in range(0, vmCount): {
@@ -75,3 +83,6 @@ resource vm 'Microsoft.Compute/virtualMachines@2021-03-01' = [for i in range(0, 
     }
   }
 }]
+
+// Outputs
+output vmIds array = [for i in range(0, vmCount): vm[i].id]

@@ -1,7 +1,14 @@
 // Parameters
+@description('Name of the Key Vault')
 param keyVaultName string 
+
+@description('Number of VMs to deploy')
 param vmCount int
+
+@description('Location for the deployment')
 param location string = 'eastus'
+
+@description('Environment name (e.g., Dev, Test, Prod)')
 param environment string 
 
 // Existing Key Vault resource
@@ -34,3 +41,8 @@ module vm './vm.bicep' = {
     subnetId: network.outputs.subnetId
   }
 }
+
+// Outputs
+output vnetId string = network.outputs.vnetId
+output subnetId string = network.outputs.subnetId
+output vmIds array = vm.outputs.vmIds

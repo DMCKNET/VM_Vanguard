@@ -1,5 +1,6 @@
 // Parameters
-param location string 
+@description('Location for the deployment')
+param location string
 
 // Virtual Network resource
 resource vnet 'Microsoft.Network/virtualNetworks@2020-06-01' = {
@@ -106,5 +107,6 @@ resource nsg 'Microsoft.Network/networkSecurityGroups@2020-06-01' = {
   }
 }
 
-// Output the subnet ID
+// Outputs
+output vnetId string = vnet.id
 output subnetId string = vnet.properties.subnets[0].id
